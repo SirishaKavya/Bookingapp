@@ -1,128 +1,58 @@
-Log in
-Sign up for free
-You said:
-
-my trainer gave me a task to create ci/cd for a movie tickets platform  first in github in repository html code and docker file and then in jenkins we should bring code and build and container shouldcreate
-
-ChatGPT said:
-Yes. Your trainer is asking you to build a basic CI/CD pipeline for a movie-ticket website, where:
-
-You create the HTML website.
-
-Put the HTML code and Dockerfile in a GitHub repository.
-
-Jenkins pulls the code from GitHub.
-
-Jenkins builds a Docker image.
-
-Jenkins creates/runs a Docker container from that image.
-
-A simple architecture is:
-
-GitHub Repository
-      │
-      │ git clone / checkout
-      ▼
-   Jenkins
-      │
-      ├── Build
-      │
-      ├── Docker build
-      │       │
-      │       ▼
-      │   Docker Image
-      │
-      └── Docker run
-              │
-              ▼
-       Movie Ticket Website
-
-Recommended repository structure
-movie-ticket-cicd/
-│
-├── index.html
-├── Dockerfile
-└── README.md
-
-index.html
-For example, you can make a simple movie-ticket homepage:
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Tickets</title>
-
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #111;
-            color: white;
-        }
-
-        header {
-            background: #e50914;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .container {
-            padding: 30px;
-            text-align: center;
-        }
-
-        .movie {
-            display: inline-block;
-            background: #222;
-            margin: 15px;
-            padding: 20px;
-            width: 220px;
-            border-radius: 10px;
-        }
-
-        button {
-            background: #e50914;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
+    <title>Movie Ticket Booking</title>
 </head>
 
 <body>
 
-<header>
-    <h1>Movie Tickets</h1>
-    <p>Book your favorite movies online</p>
-</header>
+    <h1>Movie Ticket Booking</h1>
 
-<div class="container">
+    <form>
 
-    <h2>Now Showing</h2>
+        <label>Movie:</label>
+        <select>
+            <option>Pushpa 2</option>
+            <option>RRR</option>
+            <option>Baahubali</option>
+            <option>Devara</option>
+        </select>
 
-    <div class="movie">
-        <h3>Avengers</h3>
-        <p>Action | 2h 30m</p>
-        <button>Book Ticket</button>
-    </div>
+        <br><br>
 
-    <div class="movie">
-        <h3>Interstellar</h3>
-        <p>Sci-Fi | 2h 49m</p>
-        <button>Book Ticket</button>
-    </div>
+        <label>Date:</label>
+        <input type="date">
 
-    <div class="movie">
-        <h3>Inception</h3>
-        <p>Thriller | 2h 28m</p>
-        <button>Book Ticket</button>
-    </div>
+        <br><br>
 
-</div>
+        <label>Show Time:</label>
+        <select>
+            <option>10:00 AM</option>
+            <option>1:00 PM</option>
+            <option>4:00 PM</option>
+            <option>7:00 PM</option>
+        </select>
+
+        <br><br>
+
+        <label>Number of Tickets:</label>
+        <input type="number" min="1" max="10">
+
+        <br><br>
+
+        <label>Name:</label>
+        <input type="text" placeholder="Enter your name">
+
+        <br><br>
+
+        <label>Email:</label>
+        <input type="email" placeholder="Enter your email">
+
+        <br><br>
+
+        <button type="submit">Book Ticket</button>
+
+    </form>
 
 </body>
 </html>
